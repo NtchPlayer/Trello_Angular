@@ -1,0 +1,16 @@
+<main class="page-container">
+  <div class="title">
+    <h1 class="heading-1" (click)="isLogin = true">Connexion</h1>
+    <h1 class="heading-1" (click)="isLogin = false">Inscription</h1>
+  </div>
+  <form id="login-form" [formGroup]="loginForm" class="form-container" (submit)="loginOrRegister()">
+    <app-input-field *ngIf="!isLogin" name="register-username" type="text" placeholder="Username" label="Username" formControlName="username" />
+    <app-input-field name="register-email" type="email" placeholder="example@email.com" label="Adresse mail" formControlName="email" />
+    <app-input-field name="register-password" type="password" placeholder="password" label="Mot de passe" formControlName="password" />
+<!--    <p *ngIf="authService.error" class="form-error">Identifiant ou mot de passe invalide</p>-->
+    <app-button type="submit" [disabled]="loginForm.invalid">
+      <span *ngIf="isLogin">Se connecter</span>
+      <span *ngIf="!isLogin">S'inscrire</span>
+    </app-button>
+  </form>
+</main>

@@ -1,0 +1,27 @@
+<body id="main-container">
+  <section class="container-max">
+    <app-modal-task *ngIf="displayModal" [editTask]="editTask" (close)="displayModal = false" />
+    <div class="task-title-container">
+      <a routerLink="/folder">
+        <app-icon-button icon="arrow-left" variation="secondary" />
+      </a>
+      <h1 class="heading-1">{{ folderName }}</h1>
+      <app-button variation="secondary" (click)="openEditModal()">Ajouter une tâche</app-button>
+    </div>
+    <div cdkDropList class="tasks-container" (cdkDropListDropped)="drop($event)">
+      <p *ngFor="let task of taskService.tasks; let index = index; track: task" class="task-item" cdkDrag>
+        <span class="task-information">
+          <span class="task-number">
+            {{index + 1}}.
+          </span>
+          {{ task.NAME }}
+          <span class="task-actions-container">
+            <app-icon-button icon="pen-to-square" variation="secondary" (click)="openEditModal(task)" />
+            <app-icon-button icon="trash" variation="secondary" (click)="deleteTask(task.ID)" />
+          </span>
+        </span>
+        <app-checkbox [name]="'task'+task.ID" [(checked)]="task.CHECKED" (checkedChange)="saveTask(task)" />
+      </p>
+    </div>
+  </section>
+</body>

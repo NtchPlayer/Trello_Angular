@@ -1,0 +1,4 @@
+<div class="field-container">
+  <label *ngIf="label" class="field-label" [for]="name">{{ label }}</label>
+  <input [id]="name" class="field-input" [type]="type" [placeholder]="placeholder" [(ngModel)]="inputValue" (ngModelChange)="propagateChange($event)">
+</div>

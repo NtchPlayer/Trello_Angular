@@ -1,0 +1,44 @@
+html{
+  font-size: 16px;
+  padding: 0;
+  margin: 0;
+}
+
+body{
+  background-color: var(--neutral-color-1);
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--neutral-color-7);
+  text-rendering : optimizeLegibility;
+  font-synthesis: none;
+  direction: ltr;
+}
+
+.container{
+  background-color: var(--neutral-color-1);
+  padding: var(--spacing-9);
+  border-radius: var(--border-radius-2);
+}
+
+#main-container {
+  display: grid;
+  align-content: start;
+  gap: var(--spacing-9);
+  overflow: auto;
+  padding: var(--spacing-9);
+}
+
+.container-max {
+  max-width: 1340px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--spacing-13);
+  padding-right: var(--spacing-13);
+
+  @media screen and (max-width: 725px) {
+    padding-left: var(--spacing-8);
+    padding-right: var(--spacing-8);
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "IcePlayer",
+      "email": "nathanchevalet@orange.fr",
+      "password": "Mot de passe 1"
+    }
+  ],
+  "folders": [
+    {
+      "id": 1,
+      "name": "Folder 1",
+      "userID": 1
+    },
+    {
+      "id": 2,
+      "name": "Folder 2",
+      "userID": 1
+    },
+    {
+      "name": "P'tiCali",
+      "id": 3,
+      "userID": 1
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "idFolder": 1,
+      "name": "Cours de français pour Simon",
+      "checked": true,
+      "order": 1
+    },
+    {
+      "id": 2,
+      "idFolder": 1,
+      "name": "Pareil pour Tonyo",
+      "checked": true,
+      "order":  2
+    },
+    {
+      "id": 3,
+      "name": "Faire les courses",
+      "checked": true,
+      "idFolder": 2,
+      "order":  1
+    },
+    {
+      "id": 4,
+      "name": "Une deuxième tache",
+      "checked": false,
+      "idFolder": 2,
+      "order":  2
+    }
+  ]
+}

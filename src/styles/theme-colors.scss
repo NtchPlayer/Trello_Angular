@@ -1,0 +1,85 @@
+/* __________________ Theme __________________ */
+
+/* White */
+:root {
+  --neutral-color-1: #ffffff;
+  --neutral-color-2: #f2f2f2;
+  --neutral-color-3: #e3e3e3;
+  --neutral-color-4: #bfbfbf;
+  --neutral-color-5: #949494;
+  --neutral-color-6: #6e6e6e;
+  --neutral-color-7: #474747;
+
+  --main-color-1: #f4fcfc;
+  --main-color-2: #c7eaf0;
+  --main-color-3: #56bad7;
+  --main-color-4: #00CCFF;
+  --main-color-5: #16A2B7;
+  --main-color-6: #1c606e;
+
+  --yellow-color-1: #fefcf4;
+  --yellow-color-2: #fbefc7;
+  --yellow-color-3: #f2d362;
+  --yellow-color-4: #edc01f;
+  --yellow-color-5: #b29017;
+  --yellow-color-6: #745e0f;
+
+  --green-color-1: #f4faf4;
+  --green-color-2: #c6e4c6;
+  --green-color-3: #5eb45f;
+  --green-color-4: #19941a;
+  --green-color-5: #136f14;
+  --green-color-6: #0c490d;
+
+  --red-color-1: #fcf4f4;
+  --red-color-2: #f2c7c7;
+  --red-color-3: #db6161;
+  --red-color-4: #cc1d1d;
+  --red-color-5: #991616;
+  --red-color-6: #640e0e;
+
+  --navbar-color: #30353E;
+  --background-shadow-material-2dp: var(--neutral-color-1);
+}
+
+/* Block */
+[data-theme="dark"] {
+  --neutral-color-1: #282828;
+  --neutral-color-2: #383838;
+  --neutral-color-3: #4a4a4a;
+  --neutral-color-4: #858585;
+  --neutral-color-5: #9e9e9e;
+  --neutral-color-6: #b8b8b8;
+  --neutral-color-7: #ffffff;
+
+  --main-color-1: #333636;
+  --main-color-2: #30393b;
+  --main-color-3: #367688;
+  --main-color-4: #42d7fd;
+  --main-color-5: #77dcef;
+  --main-color-6: #a0edff;
+
+  --yellow-color-1: #333230;
+  --yellow-color-2: #3d3a2f;
+  --yellow-color-3: #564a22;
+  --yellow-color-4: #e5be35;
+  --yellow-color-5: #e7c447;
+  --yellow-color-6: #f1c422;
+
+  --green-color-1: #272827;
+  --green-color-2: #3e483e;
+  --green-color-3: #316032;
+  --green-color-4: #27a828;
+  --green-color-5: #1b9b1d;
+  --green-color-6: #20c523;
+
+  --red-color-1: #343131;
+  --red-color-2: #624444;
+  --red-color-3: #703131;
+  --red-color-4: #cc1d1d;
+  --red-color-5: #b92020;
+  --red-color-6: #c92626;
+
+  --navbar-color: var(--neutral-color-1);
+  --background-shadow-material-2dp: #2e2e2e;
+}

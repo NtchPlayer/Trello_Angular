@@ -1,0 +1,10 @@
+<div class="checkbox-container">
+  <input
+    class="checkbox-input"
+    type="checkbox"
+    [name]="name"
+    [id]="name"
+    [(ngModel)]="checked"
+    (ngModelChange)="checkedChange.emit($event)"
+  >
+</div>

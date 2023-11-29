@@ -1,0 +1,106 @@
+.icon-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  box-sizing: content-box;
+  border-radius: var(--border-radius-2);
+  width: 1em;
+  height: 1em;
+  cursor: pointer;
+  padding: var(--spacing-3);
+  color: var(--neutral-color-4);
+
+  &:focus-visible {
+    outline: var(--outline-focus);
+  }
+
+  &:disabled:not(.loading) {
+    opacity: .4;
+    cursor: not-allowed;
+  }
+
+  &.loading {
+    cursor: wait;
+  }
+}
+
+.icon-button.primary {
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-material-2dp);
+  background-color: var(--main-color-4);
+  color: var(--basic-white);
+
+  &:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-color: var(--basic-white);
+    transition-duration: var(--transition-duration-1);
+    transition-property: opacity;
+  }
+
+  @media (hover: hover) {
+    &:hover:not(:disabled):before {
+      opacity: .3;
+    }
+  }
+
+  &:active:not(:disabled):before {
+    opacity: .3;
+  }
+
+  &.unboxed {
+    box-shadow: unset;
+  }
+}
+
+.icon-button.secondary {
+  --icon-button-color: var(--neutral-color-6);
+  --icon-button-background-color: var(--neutral-color-3);
+  transition-duration: var(--transition-duration-1);
+  transition-property: color, background-color;
+
+  @media (hover: hover) {
+    &:hover:not(:disabled) {
+      background-color: var(--icon-button-background-color);
+      color: var(--icon-button-color);
+    }
+  }
+
+  &:active:not(:disabled) {
+    background-color: var(--icon-button-background-color);
+    color: var(--icon-button-color);
+  }
+}
+
+.icon-button.tertiary {
+  position: relative;
+  overflow: hidden;
+  transition-duration: var(--transition-duration-1);
+  transition-property: color, background-color;
+
+  @media (hover: hover) {
+    &:hover:not(:disabled) {
+      background-color: rgba(255, 255, 255, .10);
+      color: var(--icon-button-color);
+    }
+  }
+
+  &:active:not(:disabled) {
+    background-color: rgba(255, 255, 255, .20);
+    color: var(--icon-button-color);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform:rotate(0deg);
+  }
+  to {
+    transform:rotate(360deg);
+  }
+}

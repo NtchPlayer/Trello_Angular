@@ -1,0 +1,5 @@
+<app-modal title="Gestion de la tâche" (close)="closeModal()" (confirm)="sendTask()">
+  <form id="manage-task-form" [formGroup]="taskForm" (submit)="sendTask()">
+    <app-input-field name="task-name" placeholder="Faire les courses" label="Nom de la tâche" formControlName="name" />
+  </form>
+</app-modal>

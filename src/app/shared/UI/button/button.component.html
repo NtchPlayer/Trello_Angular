@@ -1,0 +1,4 @@
+<button [type]="type ?? 'button'" [class]="['button-container', variation]" [disabled]="disabled">
+  <ng-content />
+  <app-svg-icons *ngIf="iconStart" [icon]="iconStart" class="button-icon-start" />
+</button>

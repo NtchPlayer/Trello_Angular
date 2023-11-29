@@ -1,0 +1,22 @@
+<div class="modal-wrapper">
+  <article class="modal-container">
+    <div class="modal-header">
+      <span>
+        {{ title }}
+      </span>
+      <app-icon-button icon="xmark" variation="tertiary" (click)="closeModal()" />
+    </div>
+    <div class="modal-body">
+      <ng-content />
+    </div>
+    <div class="modal-footer">
+      <app-button variation="secondary" (click)="closeModal()">
+        Fermer
+      </app-button>
+      <app-button (click)="confirm.emit()">
+        Valider
+      </app-button>
+    </div>
+  </article>
+  <div class="modal-backdrop" (click)="closeModal()"></div>
+</div>
