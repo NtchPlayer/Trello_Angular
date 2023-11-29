@@ -50,7 +50,7 @@ export class TaskComponent implements OnInit {
     this.taskService.tasks.forEach((task: Task, index) => {
       this.taskService.updateTask({
         id: task.id,
-        name: task.name,
+        title: task.title,
         checked: task.checked,
         order: index + 1
       })

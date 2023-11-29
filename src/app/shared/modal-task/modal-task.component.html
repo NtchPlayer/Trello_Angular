@@ -1,5 +1,15 @@
 <app-modal title="Gestion de la tâche" (close)="closeModal()" (confirm)="sendTask()">
   <form id="manage-task-form" [formGroup]="taskForm" (submit)="sendTask()">
-    <app-input-field name="task-name" placeholder="Faire les courses" label="Nom de la tâche" formControlName="name" />
+    <app-input-field name="task-title" placeholder="Faire les courses" label="Nom de la tâche" formControlName="title" />
+    <app-input-field name="task-description" placeholder="Description de la tache" label="Description de la tâche" formControlName="description" />
+    <ul class="tag-list">
+      <li class="tag" *ngFor="let tag of editTask?.tag">
+        {{ tag }}
+      </li>
+    </ul>
+    <div class="tag-list">
+      <p>Date limite :</p>
+      <input type="datetime-local">
+    </div>
   </form>
 </app-modal>

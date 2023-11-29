@@ -24,7 +24,7 @@ export class AuthService {
       if (userData && userData.password === password ) {
         this.user = userData
         localStorage.setItem('user', JSON.stringify(userData))
-        this.router.navigateByUrl('/quiz')
+        this.router.navigateByUrl('/folder')
       } else {
         this.error = true
         this.user = undefined

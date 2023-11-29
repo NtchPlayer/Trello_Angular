@@ -1,7 +1,13 @@
+import {User} from "./user.interface";
+
 export interface Task {
   id: number;
+  title: string;
+  description?: string;
+  tag?: string[];
+  deadline?: Date;
+  user_assigned?: User[];
   checked: boolean;
-  folder?: string;
-  name: string;
   order: number;
+  folder_id?: string;
 }

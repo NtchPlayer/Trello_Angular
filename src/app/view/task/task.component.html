@@ -14,7 +14,7 @@
           <span class="task-number">
             {{index + 1}}.
           </span>
-          {{ task.name }}
+          {{ task.title }}
           <span class="task-actions-container">
             <app-icon-button icon="pen-to-square" variation="secondary" (click)="openEditModal(task)" />
             <app-icon-button icon="trash" variation="secondary" (click)="deleteTask(task.id)" />

@@ -12,13 +12,14 @@ import {Task} from "../../model/task.interface";
 export class ModalTaskComponent {
   @Input() editTask?: Task;
   @Output() close: EventEmitter<any> = new EventEmitter();
-
+  tags?: string[] = []
   constructor(
     public taskService: TaskService,
   ) {}
 
   taskForm: any = new FormGroup({
-    name: new FormControl('', [Validators.required])
+    title: new FormControl('', [Validators.required]),
+    description: new FormControl('', )
   })
 
   sendTask() {
@@ -26,8 +27,11 @@ export class ModalTaskComponent {
       if (this.editTask) {
         this.taskService.updateTask({
           id: this.editTask.id,
+          title: this.taskForm.value.title,
+          description: this.taskForm.value.description,
+          tag: this.editTask.tag,
+          deadline: this.editTask.deadline,
           checked: this.editTask.checked,
-          name: this.taskForm.value.name,
           order: this.editTask.order
         })
       } else {
@@ -45,7 +49,9 @@ export class ModalTaskComponent {
 
   getTask (id: number) {
     this.taskService.getOneTask(id).subscribe((task: Task) => {
-      this.taskForm.get('name')?.setValue(task.name)
+      this.taskForm.get('title')?.setValue(task.title)
+      this.taskForm.get('description')?.setValue(task.description)
+      this.tags = task.tag
     })
   }
 
