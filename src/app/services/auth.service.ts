@@ -23,7 +23,7 @@ export class AuthService {
       const userData = user[0]
       if (userData && userData.password === password ) {
         this.user = userData
-        localStorage.setItem('email', userData.email)
+        localStorage.setItem('user', JSON.stringify(userData))
         this.router.navigateByUrl('/quiz')
       } else {
         this.error = true
@@ -40,6 +40,10 @@ export class AuthService {
     this.http.post('http://localhost:3000/users', { username, email, password }).subscribe(() => {
       this.login(email, password)
     })
+  }
+
+  getUserData() {
+    return JSON.parse(localStorage.getItem('user')!);
   }
 
 

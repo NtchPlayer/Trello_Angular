@@ -1,6 +1,5 @@
 export interface Folder {
-
-  ID: number;
-  NAME: string;
-  USER: string;
+  id: number;
+  name: string;
+  user: string;
 }

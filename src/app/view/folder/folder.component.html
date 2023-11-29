@@ -12,11 +12,11 @@
       <app-button variation="secondary" (click)="openEditModal($event)">Ajouter un dossier</app-button>
     </div>
     <div class="folders-container">
-      <a *ngFor="let folder of folderService.folders" [routerLink]="'/folder/'+folder.ID" class="folder-item">
-        {{ folder.NAME }}
+      <a *ngFor="let folder of folderService.folders" [routerLink]="'/folder/'+folder.id" class="folder-item">
+        {{ folder.name }}
         <span class="folders-actions-container">
-          <app-icon-button icon="pen-to-square" variation="secondary" (click)="openEditModal($event, folder.ID)" />
-          <app-icon-button icon="trash" variation="secondary" (click)="deleteFolder($event, folder.ID)" />
+          <app-icon-button icon="pen-to-square" variation="secondary" (click)="openEditModal($event, folder.id)" />
+          <app-icon-button icon="trash" variation="secondary" (click)="deleteFolder($event, folder.id)" />
         </span>
       </a>
     </div>

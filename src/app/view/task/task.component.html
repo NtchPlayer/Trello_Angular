@@ -14,13 +14,13 @@
           <span class="task-number">
             {{index + 1}}.
           </span>
-          {{ task.NAME }}
+          {{ task.name }}
           <span class="task-actions-container">
             <app-icon-button icon="pen-to-square" variation="secondary" (click)="openEditModal(task)" />
-            <app-icon-button icon="trash" variation="secondary" (click)="deleteTask(task.ID)" />
+            <app-icon-button icon="trash" variation="secondary" (click)="deleteTask(task.id)" />
           </span>
         </span>
-        <app-checkbox [name]="'task'+task.ID" [(checked)]="task.CHECKED" (checkedChange)="saveTask(task)" />
+        <app-checkbox [name]="'task'+task.id" [(checked)]="task.checked" (checkedChange)="saveTask(task)" />
       </p>
     </div>
   </section>

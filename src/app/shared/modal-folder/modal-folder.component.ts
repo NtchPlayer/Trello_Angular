@@ -40,7 +40,7 @@ export class ModalFolderComponent implements OnInit {
 
   getFolder (id: number) {
     this.folderService.getOneFolder(id).subscribe((folder: Folder) => {
-      this.folderForm.get('name')?.setValue(folder.NAME)
+      this.folderForm.get('name')?.setValue(folder.name)
     })
   }
 

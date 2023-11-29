@@ -15,9 +15,6 @@ import { InputFieldComponent } from './shared/UI/input-field/input-field.compone
 
 import { InlineSVGModule } from 'ng-inline-svg-2';
 import { LoginComponent } from './view/login/login.component';
-import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
-import { environment } from '../environments/environment';
-import { FIREBASE_OPTIONS } from "@angular/fire/compat";
 import { FolderComponent } from './view/folder/folder.component';
 import { TaskComponent } from './view/task/task.component';
 import { CommonModule } from "@angular/common";
@@ -56,12 +53,8 @@ import { CdkDrag, CdkDropList } from '@angular/cdk/drag-drop';
       baseUrl: 'http://localhost:4200'
     }),
     ReactiveFormsModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
     CdkDropList,
     CdkDrag
-  ],
-  providers: [
-    { provide: FIREBASE_OPTIONS, useValue: environment.firebase }
   ],
   bootstrap: [AppComponent]
 })

@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {AuthService} from "../services/auth.service";
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from "../services/auth.service";
 
 @Component({
   selector: 'app-header',
@@ -14,16 +14,10 @@ export class HeaderComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.service.getUserData().subscribe((user) => {
-      if (user) {
-        this.isLogin = true;
-      } else {
-        this.isLogin = false;
-      }
-    });
+    this.service.getUserData()
   }
 
-  deconnexion() {
+  logout() {
     this.service.logout();
   }
 }

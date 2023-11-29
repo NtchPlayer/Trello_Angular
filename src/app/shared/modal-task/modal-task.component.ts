@@ -25,10 +25,10 @@ export class ModalTaskComponent {
     try {
       if (this.editTask) {
         this.taskService.updateTask({
-          ID: this.editTask.ID,
-          CHECKED: this.editTask.CHECKED,
-          NAME: this.taskForm.value.name,
-          ORDER: this.editTask.ORDER
+          id: this.editTask.id,
+          checked: this.editTask.checked,
+          name: this.taskForm.value.name,
+          order: this.editTask.order
         })
       } else {
         this.taskService.createTask(this.taskForm.value.name)
@@ -45,13 +45,13 @@ export class ModalTaskComponent {
 
   getTask (id: number) {
     this.taskService.getOneTask(id).subscribe((task: Task) => {
-      this.taskForm.get('name')?.setValue(task.NAME)
+      this.taskForm.get('name')?.setValue(task.name)
     })
   }
 
   ngOnInit() {
     if (this.editTask) {
-      this.getTask(this.editTask.ID)
+      this.getTask(this.editTask.id)
     }
   }
 }

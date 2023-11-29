@@ -28,7 +28,7 @@ export class TaskComponent implements OnInit {
 
   getFolderName (idFolder: number) {
     this.folderService.getOneFolder(idFolder).subscribe((folder: Folder) => {
-      this.folderName = folder.NAME
+      this.folderName = folder.name
     })
   }
 
@@ -49,10 +49,10 @@ export class TaskComponent implements OnInit {
     moveItemInArray(this.taskService.tasks, event.previousIndex, event.currentIndex);
     this.taskService.tasks.forEach((task: Task, index) => {
       this.taskService.updateTask({
-        ID: task.ID,
-        NAME: task.NAME,
-        CHECKED: task.CHECKED,
-        ORDER: index + 1
+        id: task.id,
+        name: task.name,
+        checked: task.checked,
+        order: index + 1
       })
     })
   }

@@ -17,9 +17,6 @@
         "build": {
           "builder": "@angular-builders/custom-webpack:browser",
           "options": {
-            "customWebpackConfig": {
-              "path": "./custom-webpack.config.ts"
-            },
             "outputPath": "dist/eztask_angular",
             "index": "src/index.html",
             "main": "src/main.ts",
