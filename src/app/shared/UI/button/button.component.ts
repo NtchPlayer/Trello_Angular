@@ -10,4 +10,5 @@ export class ButtonComponent {
   @Input() type: string | undefined
   @Input() disabled: boolean | undefined = false
   @Input() iconStart: string | undefined
+  @Input() to: string | undefined
 }

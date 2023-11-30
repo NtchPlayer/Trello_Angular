@@ -10,20 +10,24 @@
 }
 
 .button-container.primary {
+  border: 1px solid var(--main-color-4);
   background-color: var(--main-color-4);
   transition-duration: .1s;
-  transition-property: background-color;
+  transition-property: background-color, border-color;
 
   &[disabled] {
-    background-color: #a4a4a4;
+    border-color: var(--neutral-color-4);
+    background-color: var(--neutral-color-4);
     cursor: not-allowed;
   }
 
   &:hover:not([disabled]) {
+    border-color: var(--main-color-5);;
     background-color: var(--main-color-5);
   }
 
   &:active:not([disabled]) {
+    border-color: var(--main-color-6);;
     background-color: var(--main-color-6);
   }
 }
