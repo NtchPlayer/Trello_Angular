@@ -14,3 +14,8 @@
 .app-title {
   color: var(--basic-white);
 }
+
+.header-buttons-container {
+  display: flex;
+  gap: var(--spacing-4);
+}

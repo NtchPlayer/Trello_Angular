@@ -1,0 +1,8 @@
+.link-component {
+  color: var(--main-color-4);
+
+  &:hover {
+    text-decoration-thickness: 1px;
+    text-decoration-line: underline;
+  }
+}

@@ -15,6 +15,7 @@ import { InputFieldComponent } from './shared/UI/input-field/input-field.compone
 
 import { InlineSVGModule } from 'ng-inline-svg-2';
 import { LoginComponent } from './view/login/login.component';
+import { RegisterComponent } from './view/register/register.component';
 import { FolderComponent } from './view/folder/folder.component';
 import { TaskComponent } from './view/task/task.component';
 import { CommonModule } from "@angular/common";
@@ -41,7 +42,8 @@ import { CdkDrag, CdkDropList } from '@angular/cdk/drag-drop';
     ModalComponent,
     ModalFolderComponent,
     ModalTaskComponent,
-    CheckboxComponent
+    CheckboxComponent,
+    RegisterComponent
   ],
   imports: [
     CommonModule,

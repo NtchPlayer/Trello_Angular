@@ -3,10 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './view/login/login.component';
 import { FolderComponent } from './view/folder/folder.component';
 import { TaskComponent } from './view/task/task.component';
+import { RegisterComponent } from './view/register/register.component';
 
 const routes: Routes = [{
-  path: '',
+  path: 'login',
   component: LoginComponent
+},{
+  path: 'register',
+  component: RegisterComponent
 }, {
   path: 'folder',
   component: FolderComponent,
