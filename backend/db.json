@@ -26,26 +26,14 @@
   ],
   "tasks": [
     {
-      "id": 1,
-      "title": "Cours de français pour Simon",
-      "description": "Simon a besoin d'aide pour ses cours de français",
-      "tag": [
-        "URG",
-        "IMP"
-      ],
-      "deadline": "Sat Sep 13 275760 00:00:00 GMT+0000",
-      "checked": false,
-      "order": 1,
-      "idFolder": "1"
-    },
-    {
       "id": 2,
       "title": "Cours de maths pour Simon",
       "description": "Simon a besoin d'aide pour ses cours de maths",
       "tag": [
-        "IMP"
+        "IMP",
+        "URG"
       ],
-      "deadline": "Sat Sep 13 275760 00:00:00 GMT+0000",
+      "deadline": "2001-02-12T12:02",
       "checked": false,
       "order": 2,
       "idFolder": "1"

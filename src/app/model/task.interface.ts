@@ -5,7 +5,7 @@ export interface Task {
   title: string;
   description?: string;
   tag?: string[];
-  deadline?: Date;
+  deadline?: any;
   user_assigned?: User[];
   checked: boolean;
   order: number;

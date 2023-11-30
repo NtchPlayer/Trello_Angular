@@ -1,15 +1,24 @@
 <app-modal title="Gestion de la tâche" (close)="closeModal()" (confirm)="sendTask()">
   <form id="manage-task-form" [formGroup]="taskForm" (submit)="sendTask()">
-    <app-input-field name="task-title" placeholder="Faire les courses" label="Nom de la tâche" formControlName="title" />
-    <app-input-field name="task-description" placeholder="Description de la tache" label="Description de la tâche" formControlName="description" />
+    <app-input-field name="task-title" placeholder="Faire les courses" label="Nom de la tâche" formControlName="title"/>
+    <app-input-field name="task-description" placeholder="Description de la tache" label="Description de la tâche"
+                     formControlName="description"/>
+    <label class="field-label">Étiquettes</label>
     <ul class="tag-list">
-      <li class="tag" *ngFor="let tag of editTask?.tag">
+      <li class="tag" *ngFor="let tag of editTask?.tag; let i = index">
+        <span>
         {{ tag }}
+        </span>
+        <button (click)="deleteTag(i)">X</button>
       </li>
     </ul>
     <div class="tag-list">
       <p>Date limite :</p>
-      <input type="datetime-local">
+      <input name="task-deadline" formControlName="deadline" type="datetime-local">
     </div>
+    <select formControlName="selectedTag" (change)="addTag()">
+      <option value="Ajouter une étiquette">Ajouter une étiquette</option>
+      <option *ngFor="let tag of tagList" [value]="tag.id">{{ tag.name }}</option>
+    </select>
   </form>
 </app-modal>
