@@ -1,0 +1,14 @@
+<main class="page-container">
+  <form id="register-form" class="form-container" [formGroup]="registerForm" (submit)="register()">
+    <h1 class="heading-1">Inscription</h1>
+    <app-input-field name="register-username" type="text" placeholder="Username" label="Username" formControlName="username" />
+    <app-input-field name="register-email" type="email" placeholder="example@email.com" label="Adresse mail" formControlName="email" />
+    <app-input-field name="register-password" type="password" placeholder="password" label="Mot de passe" formControlName="password" />
+    <p>
+      Vous avez déjà compte ? <app-link link="/login">Connectez-vous !</app-link>
+    </p>
+    <app-button type="submit" [disabled]="registerForm.invalid">
+      S'inscrire
+    </app-button>
+  </form>
+</main>

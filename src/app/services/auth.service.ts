@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class AuthService {
 
   user: User | undefined
+  isLogin: boolean = false
   users: User[] = []
   error: boolean = false
 
@@ -24,6 +25,7 @@ export class AuthService {
       const userData = user[0]
       if (userData && userData.password === password ) {
         this.user = userData
+        this.isLogin = true
         localStorage.setItem('user', JSON.stringify(userData))
         this.router.navigateByUrl('/folder')
       } else {
@@ -43,8 +45,12 @@ export class AuthService {
     })
   }
 
-  getUserData() {
-    return JSON.parse(localStorage.getItem('user')!);
+  retrieveUserLocalStorage() {
+    const userFromLocalStorage: string | null = localStorage.getItem('user')
+    if (userFromLocalStorage) {
+      this.user = JSON.parse(userFromLocalStorage);
+      this.isLogin = true;
+    }
   }
 
   getAllUsers() {
@@ -65,6 +71,7 @@ export class AuthService {
   logout() {
     this.user = undefined;
     localStorage.removeItem('user');
-    this.router.navigate(['']);
+    this.isLogin = false;
+    this.router.navigate(['/login']);
   }
 }

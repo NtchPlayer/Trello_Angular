@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from "../services/auth.service";
 
 @Component({
@@ -6,16 +6,8 @@ import { AuthService } from "../services/auth.service";
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit{
-
-  public isLogin: boolean = false;
-
-  constructor(private service: AuthService) {
-  }
-
-  ngOnInit(): void {
-    this.service.getUserData()
-  }
+export class HeaderComponent {
+  constructor(public service: AuthService) {}
 
   logout() {
     this.service.logout();
