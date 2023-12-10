@@ -54,7 +54,8 @@ export class TaskComponent implements OnInit {
         description: task.description,
         tags: task.tags,
         checked: task.checked,
-        order: index + 1
+        order: index + 1,
+        userId_assigned: task.userId_assigned,
       })
     })
   }
