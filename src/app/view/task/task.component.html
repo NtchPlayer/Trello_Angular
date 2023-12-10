@@ -1,6 +1,6 @@
 <body id="main-container">
   <section class="container-max">
-    <app-modal-task *ngIf="displayModal" [editTask]="editTask" (close)="displayModal = false" />
+    <app-modal-task *ngIf="displayModal" [taskId]="taskId" (close)="displayModal = false" />
     <div class="task-title-container">
       <a routerLink="/folder">
         <app-icon-button icon="arrow-left" variation="secondary" />
@@ -14,7 +14,7 @@
           <span class="task-number">
             {{index + 1}}.
           </span>
-          {{ task.name }}
+          {{ task.title }}
           <span class="task-actions-container">
             <app-icon-button icon="pen-to-square" variation="secondary" (click)="openEditModal(task)" />
             <app-icon-button icon="trash" variation="secondary" (click)="deleteTask(task.id)" />

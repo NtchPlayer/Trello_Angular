@@ -10,6 +10,7 @@ export class AuthService {
 
   user: User | undefined
   isLogin: boolean = false
+  users: User[] = []
   error: boolean = false
 
   constructor(
@@ -50,6 +51,12 @@ export class AuthService {
       this.user = JSON.parse(userFromLocalStorage);
       this.isLogin = true;
     }
+  }
+
+  getAllUsers() {
+    return this.http.get<User[]>(`http://localhost:3000/users`).subscribe((users: User[]) => {
+      return this.users = users;
+    });
   }
 
 

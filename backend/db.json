@@ -4,7 +4,7 @@
       "id": 1,
       "username": "IcePlayer",
       "email": "nathanchevalet@orange.fr",
-      "password": "Mot de passe 1"
+      "password": "a"
     }
   ],
   "folders": [
@@ -26,32 +26,26 @@
   ],
   "tasks": [
     {
-      "id": 1,
-      "idFolder": 1,
-      "name": "Cours de français pour Simon",
-      "checked": true,
-      "order": 1
-    },
-    {
       "id": 2,
-      "idFolder": 1,
-      "name": "Pareil pour Tonyo",
-      "checked": true,
-      "order":  2
-    },
-    {
-      "id": 3,
-      "name": "Faire les courses",
-      "checked": true,
-      "idFolder": 2,
-      "order":  1
-    },
-    {
-      "id": 4,
-      "name": "Une deuxième tache",
+      "title": "Cours de maths pour Simon",
+      "description": "Simon a besoin d'aide pour ses cours de maths",
+      "tag": [],
+      "deadline": "2001-02-12T14:02",
       "checked": false,
-      "idFolder": 2,
-      "order":  2
+      "order": 2,
+      "idFolder": "1"
+    }
+  ],
+  "tags": [
+    {
+      "id": "URG",
+      "name": "urgent",
+      "color": "#ff0000"
+    },
+    {
+      "id": "IMP",
+      "name": "important",
+      "color": "#00ff00"
     }
   ]
 }
