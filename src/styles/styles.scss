@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import 'reset';
 @import 'tokens/borders';
 @import 'tokens/font-weights';

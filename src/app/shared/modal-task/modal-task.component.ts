@@ -4,6 +4,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Task} from "../../model/task.interface";
 import {TagService} from "../../services/tag.service";
 import {Tag} from "../../model/tag.interface";
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-modal-task',
@@ -12,56 +13,85 @@ import {Tag} from "../../model/tag.interface";
 })
 
 export class ModalTaskComponent {
-  @Input() editTask?: Task;
+  @Input() taskId?: number;
   @Output() close: EventEmitter<any> = new EventEmitter();
-  tagList: Tag[] = []
+
+  editTask?: Task;
 
   constructor(
     public taskService: TaskService,
+    public authService: AuthService,
     public tagService: TagService
   ) {
   }
+
 
   taskForm: any = new FormGroup({
     title: new FormControl('', [Validators.required]),
     description: new FormControl(''),
     deadline: new FormControl(''),
-    selectedTag: new FormControl('Ajouter une étiquette')
+    selectedTag: new FormControl('Ajouter une étiquette'),
+    assignedUser: new FormControl('Assigner un utilisateur'),
 
   })
 
+  currentTagList() {
+    return this.tagService.tags.filter((tag: any) => {
+      return !this.editTask?.tags?.includes(tag.id);
+    });
+  }
+
+  currentUserList() {
+    return this.authService.users.filter((user: any) => {
+      return !this.editTask?.userId_assigned?.includes(user.id);
+    });
+  }
+
   addTag() {
     const selectedTagId = this.taskForm.get('selectedTag').value;
-    const selectedTag:any = this.tagList.find(tag => tag.id === selectedTagId);
+    const selectedTag: any = this.tagService.tags.find(tag => tag.id === selectedTagId);
 
     if (selectedTag && this.editTask) {
-      if (!this.editTask.tag) {
-        this.editTask.tag = [];
+      if (!this.editTask.tags) {
+        this.editTask.tags = [];
       }
 
-      if (!this.editTask.tag.includes(selectedTag?.id)) {
-        this.editTask.tag.push(selectedTag?.id);
+      if (!this.editTask.tags.includes(selectedTag?.id)) {
+        this.editTask.tags.push(selectedTag?.id);
       }
-
-      // Réinitialisez le FormControl de sélection de tag
-      this.taskForm.get('selectedTag').reset().value('Ajouter une étiquette');
     }
-    this.tagService.getTags().subscribe((tags: Tag[]) => {
-      this.tagList = tags.filter((tag: any) => {
-        return !this.editTask?.tag?.includes(tag.id);
-      });
-    });
+    this.taskForm.get('selectedTag')?.setValue("Ajouter une étiquette")
+
+  }
+
+  addUser(){
+    const selectedUserId = parseInt(this.taskForm.get('assignedUser').value);
+    const selectedUser: any = this.authService.users.find(user => user.id === selectedUserId);
+    console.log(selectedUser)
+
+    if (selectedUser && this.editTask) {
+      if (!this.editTask.userId_assigned) {
+        this.editTask.userId_assigned = [];
+      }
+
+      if (!this.editTask.userId_assigned.includes(selectedUser?.id)) {
+        this.editTask.userId_assigned.push(selectedUser?.id);
+      }
+    }
+    this.taskForm.get('assignedUser')?.setValue("Assigner un utilisateur")
+
   }
 
 
   sendTask() {
     try {
+      console.log("sendtask")
       if (this.editTask) {
         this.taskService.updateTask({
           id: this.editTask.id,
           title: this.taskForm.value.title,
           description: this.taskForm.value.description,
-          tag: this.editTask.tag,
+          tags: this.editTask.tags,
           deadline: this.taskForm.value.deadline,
           checked: this.editTask.checked,
           order: this.editTask.order
@@ -81,32 +111,32 @@ export class ModalTaskComponent {
 
   getTask(id: number) {
     this.taskService.getOneTask(id).subscribe((task: Task) => {
+      this.editTask = task
       this.taskForm.get('title')?.setValue(task.title)
       this.taskForm.get('description')?.setValue(task.description)
-      this.taskForm.get('tag')?.setValue(task.tag)
+      this.taskForm.get('selectedTag')?.setValue("Ajouter une étiquette")
+      this.taskForm.get('assignedUser')?.setValue("Assigner un utilisateur")
       this.taskForm.get('deadline')?.setValue(task.deadline)
     })
   }
 
+  getUserName(id: number) {
+    const user = this.authService.users.find((user: any) => user.id === id);
+    return user?.username;
+  }
+
   deleteTag(index: number) {
-    this.editTask?.tag?.splice(index, 1)
-    if (!this.editTask?.tag) return
-    this.taskForm.tag = this.editTask.tag?.filter((tag, i) => i !== index)
-    this.tagService.getTags().subscribe((tags: Tag[]) => {
-      this.tagList = tags.filter((tag: any) => {
-        return !this.editTask?.tag?.includes(tag.id);
-      });
-    });
+    this.editTask?.tags?.splice(index, 1)
+    if (!this.editTask?.tags) return
+    this.taskForm.tags = this.editTask.tags?.filter((tag, i) => i !== index)
   }
 
   ngOnInit() {
-    if (this.editTask) {
-      this.getTask(this.editTask.id)
-      this.tagService.getTags().subscribe((tags: Tag[]) => {
-        this.tagList = tags.filter((tag: any) => {
-          return !this.editTask?.tag?.includes(tag.id);
-        });
-      });
+    if (this.taskId) {
+      console.log("la tache s'ouvre")
+      this.getTask(this.taskId)
+      this.authService.getAllUsers();
+      this.tagService.getTags();
     }
   }
 }

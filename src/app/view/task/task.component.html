@@ -1,6 +1,6 @@
 <body id="main-container">
   <section class="container-max">
-    <app-modal-task *ngIf="displayModal" [editTask]="editTask" (close)="displayModal = false" />
+    <app-modal-task *ngIf="displayModal" [taskId]="taskId" (close)="displayModal = false" />
     <div class="task-title-container">
       <a routerLink="/folder">
         <app-icon-button icon="arrow-left" variation="secondary" />

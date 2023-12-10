@@ -29,11 +29,8 @@
       "id": 2,
       "title": "Cours de maths pour Simon",
       "description": "Simon a besoin d'aide pour ses cours de maths",
-      "tag": [
-        "IMP",
-        "URG"
-      ],
-      "deadline": "2001-02-12T12:02",
+      "tag": [],
+      "deadline": "2001-02-12T14:02",
       "checked": false,
       "order": 2,
       "idFolder": "1"

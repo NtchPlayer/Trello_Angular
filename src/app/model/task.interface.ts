@@ -4,9 +4,9 @@ export interface Task {
   id: number;
   title: string;
   description?: string;
-  tag?: string[];
+  tags: string[];
   deadline?: any;
-  user_assigned?: User[];
+  userId_assigned?: number[];
   checked: boolean;
   order: number;
   folder_id?: string;

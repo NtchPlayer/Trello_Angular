@@ -16,7 +16,9 @@ export class TagService {
   }
 
   getTags() {
-    return this.http.get<Tag[]>(`http://localhost:3000/tags`)
+    return this.http.get<Tag[]>(`http://localhost:3000/tags`).subscribe((items: Tag[]) => {
+      this.tags = items;
+    });
   }
 
 }

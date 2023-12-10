@@ -6,7 +6,7 @@ import { Component, Input, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./modal.component.scss']
 })
 export class ModalComponent {
-  @Input() title!: string;
+  @Input() modalTitle!: string;
   @Output() close: EventEmitter<any> = new EventEmitter();
   @Output() confirm: EventEmitter<any> = new EventEmitter();
 

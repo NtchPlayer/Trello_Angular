@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class AuthService {
 
   user: User | undefined
+  users: User[] = []
   error: boolean = false
 
   constructor(
@@ -44,6 +45,12 @@ export class AuthService {
 
   getUserData() {
     return JSON.parse(localStorage.getItem('user')!);
+  }
+
+  getAllUsers() {
+    return this.http.get<User[]>(`http://localhost:3000/users`).subscribe((users: User[]) => {
+      return this.users = users;
+    });
   }
 
 
