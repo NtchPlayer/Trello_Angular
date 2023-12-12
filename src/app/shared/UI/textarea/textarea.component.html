@@ -1,0 +1,5 @@
+<div class="field-container ">
+  <label *ngIf="label" class="field-label" [for]="name">{{ label }}</label>
+  <textarea  [id]="name" class="field-input" [placeholder]="placeholder" [(ngModel)]="inputValue" (ngModelChange)="propagateChange($event)">
+    </textarea>
+</div>

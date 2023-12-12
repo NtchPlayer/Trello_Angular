@@ -1,0 +1,24 @@
+.field-container {
+  display: grid;
+  gap: 8px;
+}
+
+.field-label {
+  color: var(--neutral-color-7);
+  font-weight: 600;
+}
+
+.field-input {
+  border-radius: 2px;
+  border: 1px solid var(--neutral-color-3);
+  background-color: var(--neutral-color-2);
+  padding: 8px 16px;
+  transition-property: border-color;
+  transition-duration: .1s;
+
+  @media (hover: hover) {
+    &:hover {
+      border-color: #c4c4c4;
+    }
+  }
+}

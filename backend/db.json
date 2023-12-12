@@ -5,6 +5,12 @@
       "username": "IcePlayer",
       "email": "nathanchevalet@orange.fr",
       "password": "a"
+    },
+    {
+      "id": 2,
+      "username": "Starling",
+      "email": "starling@a.fr",
+      "password": "a"
     }
   ],
   "folders": [
@@ -29,8 +35,17 @@
       "id": 2,
       "title": "Cours de maths pour Simon",
       "description": "Simon a besoin d'aide pour ses cours de maths",
-      "tag": [],
-      "deadline": "2001-02-12T14:02",
+      "userId_assigned": [
+        1,
+        2
+      ],
+      "tags": [
+        "Rouge",
+        "Vert",
+        "Jaune",
+        "Bleu"
+      ],
+      "deadline": "2023-02-12T14:02",
       "checked": false,
       "order": 2,
       "idFolder": "1"
@@ -38,14 +53,24 @@
   ],
   "tags": [
     {
-      "id": "URG",
-      "name": "urgent",
+      "id": "Rouge",
+      "name": "Rouge",
       "color": "#ff0000"
     },
     {
-      "id": "IMP",
-      "name": "important",
+      "id": "Vert",
+      "name": "Vert",
       "color": "#00ff00"
+    },
+    {
+      "id": "Jaune",
+      "name": "Jaune",
+      "color": "#00ffff"
+    },
+    {
+      "id": "Bleu",
+      "name": "Bleu",
+      "color": "#0000ff"
     }
   ]
 }

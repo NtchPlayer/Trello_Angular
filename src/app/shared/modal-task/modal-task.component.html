@@ -1,41 +1,57 @@
 <app-modal modalTitle="Gestion de la tâche" (close)="closeModal()" (confirm)="sendTask()">
   <form id="manage-task-form" [formGroup]="taskForm" (submit)="sendTask()">
-    <app-input-field name="task-title" placeholder="Faire les courses" label="Nom de la tâche" formControlName="title"/>
-    <app-input-field name="task-description" placeholder="Description de la tache" label="Description de la tâche"
-                     formControlName="description"/>
+    <div class="flex flex-col gap-2">
+      <app-input-field name="task-title" placeholder="Faire les courses" label="Nom de la tâche"
+                       formControlName="title"/>
+      <app-textarea name="task-description" placeholder="Description de la tache" label="Description de la tâche"
+                    formControlName="description"/>
+    </div>
     <div class="mt-4 flex items-center gap-2">
       <p>Date limite :</p>
-      <input class="border" name="task-deadline" formControlName="deadline" type="datetime-local">
+      <input class="bg-[#F2F2F2] border border-[#E3E3E3] hover:border-[#C4C4C4] duration-100 rounded-xs"
+             name="task-deadline" formControlName="deadline" type="datetime-local">
     </div>
-    <div class="flex flex-col gap-4">
-    <label class="field-label mt-4">Étiquettes</label>
-    <ul class="tag-list">
-      <li class="tag" *ngFor="let tag of editTask?.tags; let i = index">
-        <span>
+    <div class="flex flex-col gap-2">
+      <label class="field-label mt-4">Étiquettes</label>
+      <ul class="flex items-center gap-2" *ngIf="editTask?.tags?.length">
+        <li *ngFor="let tag of editTask?.tags; let i = index">
+          <span
+            class="inline-flex items-center tag-{{tag.toLowerCase()}} gap-x-0.5 rounded-md bg-gray-50 px-2 py-1 text-sm font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">
         {{ tag }}
-        </span>
-        <button (click)="deleteTag(i)">X</button>
-      </li>
-    </ul>
-    <select class="mt-1" formControlName="selectedTag" (change)="addTag()">
-      <option value="Ajouter une étiquette">Ajouter une étiquette</option>
-      <option *ngFor="let tag of currentTagList()" [value]="tag.id">{{ tag.name }}</option>
-    </select>
-      <label class="field-label mt-4">Utilisateurs</label>
-      <ul class="tag-list">
-        <li class="tag" *ngFor="let userId of editTask?.userId_assigned; let i = index">
-        <span>
-        {{ getUserName(userId) }}
-        </span>
-<!--          TODO DELETEUSER(i)-->
-          <button (click)="deleteTag(i)">X</button>
+            <button type="button" (click)="deleteTag(i)"
+                    class="group relative -mr-1 h-3.5 w-3.5 rounded-sm hover:bg-gray-500/20">
+          <svg viewBox="0 0 14 14" class="h-3.5 w-3.5 stroke-gray-600/50 group-hover:stroke-gray-600/75">
+            <path d="M4 4l6 6m0-6l-6 6"/>
+          </svg>
+          <span class="absolute -inset-1"></span>
+        </button>
+      </span>
         </li>
       </ul>
-<!--          TODO ADDUser(i)-->
-    <select class="mt-4" formControlName="assignedUser" (change)="addUser()">
-      <option value="Assigner un utilisateur">Assigner un utilisateur</option>
-      <option *ngFor="let user of currentUserList()" [value]="user.id">{{ user.username }}</option>
-    </select>
+      <select *ngIf="currentTagList().length" class="mt-1" formControlName="selectedTag" (change)="addTag()">
+        <option value="Ajouter une étiquette">Ajouter une étiquette</option>
+        <option *ngFor="let tag of currentTagList()" [value]="tag.id">{{ tag.name }}</option>
+      </select>
+      <label class="field-label mt-4">Utilisateurs</label>
+      <ul class="flex items-center gap-2" *ngIf="editTask?.userId_assigned?.length">
+        <li *ngFor="let userId of editTask?.userId_assigned; let i = index">
+        <span
+          class="inline-flex items-center gap-x-0.5 rounded-md bg-gray-50 px-2 py-1 text-sm font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">
+        {{ getUserName(userId) }}
+          <button type="button" (click)="deleteUser(i)"
+                  class="group relative -mr-1 h-3.5 w-3.5 rounded-sm hover:bg-gray-500/20">
+          <svg viewBox="0 0 14 14" class="h-3.5 w-3.5 stroke-gray-600/50 group-hover:stroke-gray-600/75">
+            <path d="M4 4l6 6m0-6l-6 6"/>
+          </svg>
+          <span class="absolute -inset-1"></span>
+        </button>
+      </span>
+        </li>
+      </ul>
+      <select *ngIf="currentUserList().length" formControlName="assignedUser" (change)="addUser()">
+        <option value="Assigner un utilisateur">Assigner un utilisateur</option>
+        <option *ngFor="let user of currentUserList()" [value]="user.id">{{ user.username }}</option>
+      </select>
     </div>
   </form>
 </app-modal>
