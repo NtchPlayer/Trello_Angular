@@ -16,7 +16,7 @@ export class TaskService {
 
   getTasks() {
     return this.http.get<Task[]>(`http://localhost:3000/tasks?idFolder=${this.idFolder}`).subscribe((tasks: any) => {
-      this.tasks = tasks
+      this.tasks = tasks.sort((task1: Task, task2: Task) => task1.order - task2.order);
     })
   }
 
