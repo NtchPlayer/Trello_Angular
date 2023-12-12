@@ -1,6 +1,8 @@
 <header class="header-wrapper">
   <div class="container-max header-container nav">
-    <h1 class="app-title heading-1">EzTask</h1>
+    <h1 class="app-title heading-1">
+      <a routerLink="/">EzTask</a>
+    </h1>
     <div class="header-buttons-container">
       <app-button *ngIf="service.isLogin" variation="secondary" (click)="logout()">
         Déconnexion
