@@ -1,0 +1,10 @@
+<main class="page-container">
+  <section class="container-max home-page">
+    <h1 class="heading-1">Bienvenue sur EzTask !</h1>
+    <p class="description">
+      Créer vos tâches, classer les par dossiers, triez les par ordre d'importance, assigniez-y des tags, une date d'expiration ou même d'autre utilisateurs de l'application !
+    </p>
+    <app-button *ngIf="!authService.isLoggedIn" routerLink="/login">Se connecter</app-button>
+    <app-link *ngIf="authService.isLoggedIn" routerLink="/folder">Accéder à mes dossiers</app-link>
+  </section>
+</main>

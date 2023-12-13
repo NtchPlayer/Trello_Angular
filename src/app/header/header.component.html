@@ -1,14 +1,16 @@
 <header class="header-wrapper">
   <div class="container-max header-container nav">
-    <h1 class="app-title heading-1">EzTask</h1>
+    <h1 class="app-title heading-1">
+      <a routerLink="/">EzTask</a>
+    </h1>
     <div class="header-buttons-container">
       <app-button *ngIf="service.isLogin" variation="secondary" (click)="logout()">
         Déconnexion
       </app-button>
-      <app-button routerLink="/login" *ngIf="!service.isLogin">
+      <app-button routerLink="/login" *ngIf="!service.isLogin" iconStart="right-to-bracket">
         Se connecter
       </app-button>
-      <app-button routerLink="/register" *ngIf="!service.isLogin" variation="secondary">
+      <app-button routerLink="/register" *ngIf="!service.isLogin" iconStart="user" variation="secondary">
         Créer un compte
       </app-button>
     </div>

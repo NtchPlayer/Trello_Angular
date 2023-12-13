@@ -26,6 +26,7 @@ import { CheckboxComponent } from './shared/checkbox/checkbox.component';
 import { CdkDrag, CdkDropList } from '@angular/cdk/drag-drop';
 import { TextareaComponent } from './shared/UI/textarea/textarea.component';
 import { TooltipDirective } from './directive/tooltip.directive';
+import { HomeComponent } from './view/home/home.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { TooltipDirective } from './directive/tooltip.directive';
     RegisterComponent,
     TooltipDirective,
     TextareaComponent,
-    TextareaComponent
+    TextareaComponent,
+    HomeComponent
   ],
   imports: [
     CommonModule,
