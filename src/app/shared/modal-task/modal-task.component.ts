@@ -67,7 +67,7 @@ export class ModalTaskComponent {
   addUser(){
     const selectedUserId = parseInt(this.taskForm.get('assignedUser').value);
     const selectedUser: any = this.authService.users.find(user => user.id === selectedUserId);
-    console.log(selectedUser)
+    console.log(selectedUserId)
 
     if (selectedUser && this.editTask) {
       if (!this.editTask.userId_assigned) {
@@ -91,6 +91,7 @@ export class ModalTaskComponent {
           id: this.editTask.id,
           title: this.taskForm.value.title,
           description: this.taskForm.value.description,
+          userId_assigned: this.editTask.userId_assigned,
           tags: this.editTask.tags,
           deadline: this.taskForm.value.deadline,
           checked: this.editTask.checked,
@@ -129,6 +130,12 @@ export class ModalTaskComponent {
     this.editTask?.tags?.splice(index, 1)
     if (!this.editTask?.tags) return
     this.taskForm.tags = this.editTask.tags?.filter((tag, i) => i !== index)
+  }
+
+  deleteUser(index: number) {
+    this.editTask?.userId_assigned?.splice(index, 1)
+    if (!this.editTask?.userId_assigned) return
+    this.taskForm.userId_assigned = this.editTask.userId_assigned?.filter((user, i) => i !== index)
   }
 
   ngOnInit() {

@@ -24,6 +24,7 @@ import { ModalFolderComponent } from './shared/modal-folder/modal-folder.compone
 import { ModalTaskComponent } from './shared/modal-task/modal-task.component';
 import { CheckboxComponent } from './shared/checkbox/checkbox.component';
 import { CdkDrag, CdkDropList } from '@angular/cdk/drag-drop';
+import { TextareaComponent } from './shared/UI/textarea/textarea.component';
 import { TooltipDirective } from './directive/tooltip.directive';
 
 @NgModule({
@@ -45,7 +46,9 @@ import { TooltipDirective } from './directive/tooltip.directive';
     ModalTaskComponent,
     CheckboxComponent,
     RegisterComponent,
-    TooltipDirective
+    TooltipDirective,
+    TextareaComponent,
+    TextareaComponent
   ],
   imports: [
     CommonModule,
