@@ -25,8 +25,10 @@ import { ModalTaskComponent } from './shared/modal-task/modal-task.component';
 import { CheckboxComponent } from './shared/checkbox/checkbox.component';
 import { CdkDrag, CdkDropList } from '@angular/cdk/drag-drop';
 import { TextareaComponent } from './shared/UI/textarea/textarea.component';
-import { TooltipDirective } from './directive/tooltip.directive';
+import { TooltipDirective } from './directive/tooltip/tooltip.directive';
 import { HomeComponent } from './view/home/home.component';
+import { DeadlineHighlightDirective } from './directive/deadline-highlight/deadline-highlight.directive';
+import { TranslatePipe } from './pipe/translate.pipe';
 
 @NgModule({
   declarations: [
@@ -49,8 +51,9 @@ import { HomeComponent } from './view/home/home.component';
     RegisterComponent,
     TooltipDirective,
     TextareaComponent,
-    TextareaComponent,
-    HomeComponent
+    HomeComponent,
+    DeadlineHighlightDirective,
+    TranslatePipe
   ],
   imports: [
     CommonModule,

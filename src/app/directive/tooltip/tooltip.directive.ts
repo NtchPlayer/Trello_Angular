@@ -1,16 +1,22 @@
 import { Directive, ElementRef, HostListener, Input, Renderer2 } from '@angular/core';
 import { DatePipe } from '@angular/common';
+import { TranslatePipe } from 'src/app/pipe/translate.pipe';
 
 @Directive({
   selector: '[appTooltip]',
-  providers: [DatePipe]
+  providers: [DatePipe, TranslatePipe]
 })
 export class TooltipDirective {
   @Input('appTooltip') task: any;
 
   private tooltipElement: HTMLElement | null = null;
 
-  constructor(private el: ElementRef, private renderer: Renderer2, private datePipe: DatePipe) { }
+  constructor(
+    private el: ElementRef,
+    private renderer: Renderer2,
+    private datePipe: DatePipe,
+    private translatePipe: TranslatePipe // Inject TranslatePipe
+  ) { }
 
   @HostListener('mouseenter') onMouseEnter() {
     this.showTooltip();
@@ -18,6 +24,13 @@ export class TooltipDirective {
 
   @HostListener('mouseleave') onMouseLeave() {
     this.hideTooltip();
+  }
+
+  private hideTooltip() {
+    if (this.tooltipElement) {
+      this.renderer.removeChild(document.body, this.tooltipElement);
+      this.tooltipElement = null;
+    }
   }
 
   private showTooltip() {
@@ -28,9 +41,11 @@ export class TooltipDirective {
       const formattedDate = this.datePipe.transform(this.task.deadline, 'dd/MM/yyyy');
       const assignedUsersCount = this.task.userId_assigned ? this.task.userId_assigned.length : 0;
 
+      const translatedTags = this.task.tags ? this.task.tags.map((tag: string) => this.translatePipe.transform(tag)) : [];
+
       const content = `
         <div><strong>Deadline:</strong> ${formattedDate}</div>
-        <div><strong>Tags:</strong> ${this.task.tags ? this.task.tags.join(', ') : ''}</div>
+        <div><strong>Tags:</strong> ${translatedTags.join(', ')}</div>
         <div>${assignedUsersCount} utilisateur${assignedUsersCount !== 1 ? 's' : ''} sur cette tâche</div>
       `;
 
@@ -47,13 +62,6 @@ export class TooltipDirective {
         this.renderer.setStyle(this.tooltipElement, 'top', `${top}px`);
         this.renderer.setStyle(this.tooltipElement, 'left', `${left}px`);
       }
-    }
-  }
-
-  private hideTooltip() {
-    if (this.tooltipElement) {
-      this.renderer.removeChild(document.body, this.tooltipElement);
-      this.tooltipElement = null;
     }
   }
 }

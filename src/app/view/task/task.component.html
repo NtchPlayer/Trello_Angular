@@ -9,7 +9,7 @@
       <app-button variation="secondary" (click)="openEditModal()">Ajouter une tâche</app-button>
     </div>
     <div cdkDropList class="tasks-container" (cdkDropListDropped)="drop($event)">
-      <p *ngFor="let task of taskService.tasks; let index = index; track: task" class="task-item" cdkDrag [appTooltip]="task">
+      <p *ngFor="let task of taskService.tasks; let index = index; track: task" class="task-item" cdkDrag [appTooltip]="task" [appDeadlineHighlight]="task.deadline">
         <span class="task-information">
           <span class="task-number">
             {{index + 1}}.
