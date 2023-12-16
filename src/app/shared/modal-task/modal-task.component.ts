@@ -98,7 +98,7 @@ export class ModalTaskComponent {
           order: this.editTask.order
         })
       } else {
-        this.taskService.createTask(this.taskForm.value.name)
+        this.taskService.createTask(this.taskForm.value)
       }
       this.closeModal()
     } catch (e) {

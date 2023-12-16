@@ -24,9 +24,13 @@ export class TaskService {
     return this.http.get<Task>(`http://localhost:3000/tasks/${id}`)
   }
 
-  createTask(name: string) {
+  createTask(task: Task) {
     this.http.post('http://localhost:3000/tasks', {
-      name,
+      title: task.title,
+      description: task.description,
+      userId_assigned: task.userId_assigned,
+      tags: task.tags,
+      deadline: task.deadline,
       checked: false,
       idFolder: this.idFolder
     }).subscribe(() => {
