@@ -24,8 +24,9 @@
   z-index: 1;
   background-color: var(--neutral-color-1);
   min-width: 500px;
+  max-height: calc(100% - 40px);
   border-radius: var(--border-radius-1);
-  overflow: hidden;
+  overflow: auto;
 }
 
 .modal-header {

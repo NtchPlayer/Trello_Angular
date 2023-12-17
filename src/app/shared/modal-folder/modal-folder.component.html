@@ -1,4 +1,4 @@
-<app-modal title="Gestion du dossier" (close)="closeModal()" (confirm)="sendFolder()">
+<app-modal modalTitle="Gestion du dossier" (close)="closeModal()" (confirm)="sendFolder()">
   <form id="create-folder-form" [formGroup]="folderForm" (submit)="sendFolder()">
     <app-input-field name="folder-name" placeholder="Dossier" label="Nom du dossier" formControlName="name" />
   </form>

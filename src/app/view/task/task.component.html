@@ -1,6 +1,6 @@
 <body id="main-container">
   <section class="container-max">
-    <app-modal-task *ngIf="displayModal" [editTask]="editTask" (close)="displayModal = false" />
+    <app-modal-task *ngIf="displayModal" [taskId]="taskId" [nextId]="taskService.tasks.length + 1" (close)="displayModal = false" />
     <div class="task-title-container">
       <a routerLink="/folder">
         <app-icon-button icon="arrow-left" variation="secondary" />
@@ -9,15 +9,17 @@
       <app-button variation="secondary" (click)="openEditModal()">Ajouter une tâche</app-button>
     </div>
     <div cdkDropList class="tasks-container" (cdkDropListDropped)="drop($event)">
-      <p *ngFor="let task of taskService.tasks; let index = index; track: task" class="task-item" cdkDrag>
+      <p *ngIf="taskService.tasks.length" class="helper-text">Tips: La couleur à gauche de la tâche dépend de la deadline. 12 jours avant la deadline: Vert, Entre 11 et 7 jours: Orange. Moins de 7 jours, Rouge.</p>
+      <p *ngIf="!taskService.tasks.length" class="helper-text">Le dossier est vide ! Créer votre première tâche pour commencer.</p>
+      <p *ngFor="let task of taskService.tasks; let index = index; track: task" class="task-item" cdkDrag [appTooltip]="task" [appDeadlineHighlight]="task.deadline">
         <span class="task-information">
           <span class="task-number">
             {{index + 1}}.
           </span>
-          {{ task.name }}
+          {{ task.title }}
           <span class="task-actions-container">
             <app-icon-button icon="pen-to-square" variation="secondary" (click)="openEditModal(task)" />
-            <app-icon-button icon="trash" variation="secondary" (click)="deleteTask(task.id)" />
+            <app-icon-button icon="trash" variation="secondary" (click)="deleteTask(task.id!)" />
           </span>
         </span>
         <app-checkbox [name]="'task'+task.id" [(checked)]="task.checked" (checkedChange)="saveTask(task)" />

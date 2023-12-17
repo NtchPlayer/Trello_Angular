@@ -4,7 +4,19 @@
       "id": 1,
       "username": "IcePlayer",
       "email": "nathanchevalet@orange.fr",
-      "password": "Mot de passe 1"
+      "password": "a"
+    },
+    {
+      "id": 2,
+      "username": "Starling",
+      "email": "starling@a.fr",
+      "password": "a"
+    },
+    {
+      "username": "Test",
+      "email": "test@exemple.com",
+      "password": "Motdepasse1!",
+      "id": 3
     }
   ],
   "folders": [
@@ -14,44 +26,167 @@
       "userID": 1
     },
     {
+      "name": "Folder",
       "id": 2,
-      "name": "Folder 2",
       "userID": 1
     },
     {
       "name": "P'tiCali",
       "id": 3,
       "userID": 1
+    },
+    {
+      "name": "Folder 2",
+      "id": 5,
+      "userID": 1
+    },
+    {
+      "name": "Dossier 4",
+      "userID": 3,
+      "id": 6
     }
   ],
   "tasks": [
     {
-      "id": 1,
-      "idFolder": 1,
-      "name": "Cours de français pour Simon",
-      "checked": true,
-      "order": 1
-    },
-    {
       "id": 2,
-      "idFolder": 1,
-      "name": "Pareil pour Tonyo",
-      "checked": true,
-      "order":  2
+      "title": "Cours de maths pour simon",
+      "description": "Simon a besoin d'aide pour ses cours de maths",
+      "tags": [
+        "Rouge",
+        "Vert",
+        "Jaune",
+        "Bleu"
+      ],
+      "checked": false,
+      "order": 1,
+      "userId_assigned": [
+        1,
+        2
+      ],
+      "idFolder": "1"
     },
     {
       "id": 3,
-      "name": "Faire les courses",
-      "checked": true,
-      "idFolder": 2,
-      "order":  1
+      "title": "Test de l'app",
+      "description": "Lucas test l'app avant le rendu",
+      "deadline": "2023-12-13",
+      "tags": [
+        "Rouge",
+        "Vert",
+        "Bleu"
+      ],
+      "checked": false,
+      "order": 2,
+      "userId_assigned": [
+        1
+      ],
+      "idFolder": "1"
     },
     {
       "id": 4,
-      "name": "Une deuxième tache",
+      "title": "Test de l'app",
+      "description": "Lucas test l'app",
       "checked": false,
-      "idFolder": 2,
-      "order":  2
+      "order": 4,
+      "idFolder": "1"
+    },
+    {
+      "id": 5,
+      "title": "Nouvelle tache",
+      "description": "Tach",
+      "deadline": "2024-01-07",
+      "tags": [
+        "Vert"
+      ],
+      "checked": true,
+      "order": 5,
+      "userId_assigned": [
+        2
+      ],
+      "idFolder": "1"
+    },
+    {
+      "id": 6,
+      "title": "Nouvelle tache",
+      "description": "tache",
+      "deadline": "2023-12-31",
+      "tags": [
+        "Vert"
+      ],
+      "checked": false,
+      "order": 3,
+      "userId_assigned": [
+        1
+      ],
+      "idFolder": "1"
+    },
+    {
+      "id": 7,
+      "title": "Test",
+      "description": "Test",
+      "userId_assigned": [
+        1
+      ],
+      "tags": [
+        "Vert"
+      ],
+      "deadline": "2024-01-07",
+      "checked": false,
+      "idFolder": "2"
+    },
+    {
+      "id": 8,
+      "title": "Mon première tache",
+      "description": "Je dois faire ceci.",
+      "deadline": "2023-12-13",
+      "tags": [
+        "Rouge",
+        "Bleu",
+        "Vert"
+      ],
+      "checked": false,
+      "order": 2,
+      "userId_assigned": [
+        2
+      ],
+      "idFolder": "6"
+    },
+    {
+      "id": 9,
+      "title": "Deuxième Tâche",
+      "description": "Ma deuxième tache.",
+      "deadline": "2023-12-31",
+      "tags": [
+        "Bleu"
+      ],
+      "checked": false,
+      "order": 1,
+      "userId_assigned": [
+        2
+      ],
+      "idFolder": "6"
+    }
+  ],
+  "tags": [
+    {
+      "id": "Rouge",
+      "name": "Rouge",
+      "color": "#ff0000"
+    },
+    {
+      "id": "Vert",
+      "name": "Vert",
+      "color": "#00ff00"
+    },
+    {
+      "id": "Jaune",
+      "name": "Jaune",
+      "color": "#00ffff"
+    },
+    {
+      "id": "Bleu",
+      "name": "Bleu",
+      "color": "#0000ff"
     }
   ]
 }

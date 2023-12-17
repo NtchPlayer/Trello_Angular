@@ -33,14 +33,15 @@ export class FolderService {
       searchQuery = `?name_like=${search.toLowerCase()}`
     }
 
-    return this.http.get(`http://localhost:3000/folders${searchQuery}`).subscribe((folders: any) => {
+    return this.http.get(`http://localhost:3000/folders${searchQuery}&?userID=${this.auth.user?.id}`).subscribe((folders: any) => {
       this.folders = folders
     })
   }
 
   createFolder(name: string) {
       this.http.post('http://localhost:3000/folders', {
-        name
+        name,
+        userID: this.auth.user?.id
       }).subscribe(() => {
         this.getFolders()
       })
@@ -48,7 +49,8 @@ export class FolderService {
 
   updateFolder(id: number, name: string) {
     this.http.put(`http://localhost:3000/folders/${id}`, {
-      name
+      name,
+      userID: this.auth.user?.id
     }).subscribe(() => {
       this.getFolders()
     })

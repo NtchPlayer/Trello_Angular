@@ -20,7 +20,7 @@ export class TaskComponent implements OnInit {
 
   folderName: string = '';
   displayModal: boolean = false;
-  editTask?: Task;
+  taskId?: number;
 
   getTasks () {
     this.taskService.getTasks()
@@ -34,7 +34,7 @@ export class TaskComponent implements OnInit {
 
   openEditModal (task?: Task) {
     this.displayModal = true
-    this.editTask = task
+    this.taskId = task?.id
   }
 
   deleteTask (taskId: number) {
@@ -50,9 +50,13 @@ export class TaskComponent implements OnInit {
     this.taskService.tasks.forEach((task: Task, index) => {
       this.taskService.updateTask({
         id: task.id,
-        name: task.name,
+        title: task.title,
+        description: task.description,
+        deadline: task.deadline,
+        tags: task.tags,
         checked: task.checked,
-        order: index + 1
+        order: index + 1,
+        userId_assigned: task.userId_assigned,
       })
     })
   }
