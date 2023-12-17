@@ -14,6 +14,7 @@ import {AuthService} from "../../services/auth.service";
 
 export class ModalTaskComponent {
   @Input() taskId?: number;
+  @Input() nextId?: number;
   @Output() close: EventEmitter<any> = new EventEmitter();
 
   editTask?: Task;
@@ -85,8 +86,7 @@ export class ModalTaskComponent {
 
   sendTask() {
     try {
-      console.log("sendtask")
-      if (this.editTask) {
+      if (this.editTask?.id) {
         this.taskService.updateTask({
           id: this.editTask.id,
           title: this.taskForm.value.title,
@@ -98,7 +98,16 @@ export class ModalTaskComponent {
           order: this.editTask.order
         })
       } else {
-        this.taskService.createTask(this.taskForm.value)
+        this.taskService.createTask({
+          id: undefined,
+          title: this.taskForm.value.title,
+          description: this.taskForm.value.description,
+          userId_assigned: this.editTask?.userId_assigned,
+          tags: this.editTask?.tags!,
+          deadline: this.taskForm.value.deadline,
+          checked: false,
+          order: this.editTask?.order!
+        })
       }
       this.closeModal()
     } catch (e) {
@@ -140,10 +149,20 @@ export class ModalTaskComponent {
 
   ngOnInit() {
     if (this.taskId) {
-      console.log("la tache s'ouvre")
       this.getTask(this.taskId)
-      this.authService.getAllUsers();
-      this.tagService.getTags();
+    } else {
+      this.editTask = {
+        deadline: undefined,
+        title: '',
+        description: '',
+        tags: [],
+        userId_assigned: [],
+        order: this.nextId!,
+        checked: false,
+        id: undefined
+      }
     }
+    this.authService.getAllUsers();
+    this.tagService.getTags();
   }
 }

@@ -52,6 +52,7 @@ export class TaskComponent implements OnInit {
         id: task.id,
         title: task.title,
         description: task.description,
+        deadline: task.deadline,
         tags: task.tags,
         checked: task.checked,
         order: index + 1,

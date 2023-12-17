@@ -1,13 +1,14 @@
 import { Directive, ElementRef, HostListener, Input, Renderer2 } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { TranslatePipe } from 'src/app/pipe/translate.pipe';
+import { Task } from "../../model/task.interface";
 
 @Directive({
   selector: '[appTooltip]',
   providers: [DatePipe, TranslatePipe]
 })
 export class TooltipDirective {
-  @Input('appTooltip') task: any;
+  @Input('appTooltip') task!: Task;
 
   private tooltipElement: HTMLElement | null = null;
 

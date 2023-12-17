@@ -11,6 +11,12 @@
       "username": "Starling",
       "email": "starling@a.fr",
       "password": "a"
+    },
+    {
+      "username": "Test",
+      "email": "test@exemple.com",
+      "password": "Motdepasse1!",
+      "id": 3
     }
   ],
   "folders": [
@@ -20,57 +26,145 @@
       "userID": 1
     },
     {
+      "name": "Folder",
       "id": 2,
-      "name": "Folder 2",
       "userID": 1
     },
     {
       "name": "P'tiCali",
       "id": 3,
       "userID": 1
+    },
+    {
+      "name": "Folder 2",
+      "id": 5,
+      "userID": 1
+    },
+    {
+      "name": "Dossier 4",
+      "userID": 3,
+      "id": 6
     }
   ],
   "tasks": [
     {
       "id": 2,
-      "title": "Cours de maths pour Simon",
+      "title": "Cours de maths pour simon",
       "description": "Simon a besoin d'aide pour ses cours de maths",
-      "userId_assigned": [
-        1,
-        2
-      ],
       "tags": [
         "Rouge",
         "Vert",
         "Jaune",
         "Bleu"
       ],
-      "deadline": "2023-12-24T14:02",
       "checked": false,
-      "order": 2,
+      "order": 1,
+      "userId_assigned": [
+        1,
+        2
+      ],
       "idFolder": "1"
     },
     {
       "id": 3,
       "title": "Test de l'app",
       "description": "Lucas test l'app avant le rendu",
+      "deadline": "2023-12-13",
+      "tags": [
+        "Rouge",
+        "Vert",
+        "Bleu"
+      ],
+      "checked": false,
+      "order": 2,
+      "userId_assigned": [
+        1
+      ],
+      "idFolder": "1"
+    },
+    {
+      "id": 4,
+      "title": "Test de l'app",
+      "description": "Lucas test l'app",
+      "checked": false,
+      "order": 4,
+      "idFolder": "1"
+    },
+    {
+      "id": 5,
+      "title": "Nouvelle tache",
+      "description": "Tach",
+      "deadline": "2024-01-07",
+      "tags": [
+        "Vert"
+      ],
+      "checked": true,
+      "order": 5,
+      "userId_assigned": [
+        2
+      ],
+      "idFolder": "1"
+    },
+    {
+      "id": 6,
+      "title": "Nouvelle tache",
+      "description": "tache",
+      "deadline": "2023-12-31",
+      "tags": [
+        "Vert"
+      ],
+      "checked": false,
+      "order": 3,
+      "userId_assigned": [
+        1
+      ],
+      "idFolder": "1"
+    },
+    {
+      "id": 7,
+      "title": "Test",
+      "description": "Test",
       "userId_assigned": [
         1
       ],
       "tags": [
-        "Rouge"
+        "Vert"
       ],
-      "deadline": "2023-12-17T23:59",
+      "deadline": "2024-01-07",
       "checked": false,
-      "idFolder": "1"
+      "idFolder": "2"
     },
     {
-      "title": "Test de l'app",
-      "description": "Lucas test l'app",
-      "deadline": "2023-12-17T23:59",
+      "id": 8,
+      "title": "Mon première tache",
+      "description": "Je dois faire ceci.",
+      "deadline": "2023-12-13",
+      "tags": [
+        "Rouge",
+        "Bleu",
+        "Vert"
+      ],
       "checked": false,
-      "idFolder": "1",
-      "id": 4
+      "order": 2,
+      "userId_assigned": [
+        2
+      ],
+      "idFolder": "6"
+    },
+    {
+      "id": 9,
+      "title": "Deuxième Tâche",
+      "description": "Ma deuxième tache.",
+      "deadline": "2023-12-31",
+      "tags": [
+        "Bleu"
+      ],
+      "checked": false,
+      "order": 1,
+      "userId_assigned": [
+        2
+      ],
+      "idFolder": "6"
     }
   ],
   "tags": [
