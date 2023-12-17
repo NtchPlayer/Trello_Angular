@@ -51,6 +51,7 @@
       "id": 2,
       "title": "Cours de maths pour simon",
       "description": "Simon a besoin d'aide pour ses cours de maths",
+      "deadline": "2023-12-25",
       "tags": [
         "Rouge",
         "Vert",
@@ -80,14 +81,6 @@
       "userId_assigned": [
         1
       ],
-      "idFolder": "1"
-    },
-    {
-      "id": 4,
-      "title": "Test de l'app",
-      "description": "Lucas test l'app",
-      "checked": false,
-      "order": 4,
       "idFolder": "1"
     },
     {
